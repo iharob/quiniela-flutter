@@ -38,7 +38,7 @@ Map<String, dynamic> _$$AuthResponseImplToJson(_$AuthResponseImpl instance) =>
 
 _$UserProfileImpl _$$UserProfileImplFromJson(Map<String, dynamic> json) =>
     _$UserProfileImpl(
-      userId: (json['userID'] as num).toInt(),
+      userId: (json['userId'] as num).toInt(),
       name: json['name'] as String,
       email: json['email'] as String,
       bio: json['bio'] as String?,
@@ -47,7 +47,7 @@ _$UserProfileImpl _$$UserProfileImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$UserProfileImplToJson(_$UserProfileImpl instance) =>
     <String, dynamic>{
-      'userID': instance.userId,
+      'userId': instance.userId,
       'name': instance.name,
       'email': instance.email,
       'bio': instance.bio,
@@ -57,7 +57,7 @@ Map<String, dynamic> _$$UserProfileImplToJson(_$UserProfileImpl instance) =>
 _$PublicUserProfileImpl _$$PublicUserProfileImplFromJson(
         Map<String, dynamic> json) =>
     _$PublicUserProfileImpl(
-      userId: (json['userID'] as num).toInt(),
+      userId: (json['userId'] as num).toInt(),
       name: json['name'] as String,
       bio: json['bio'] as String?,
       photoUrl: json['photoUrl'] as String?,
@@ -66,7 +66,7 @@ _$PublicUserProfileImpl _$$PublicUserProfileImplFromJson(
 Map<String, dynamic> _$$PublicUserProfileImplToJson(
         _$PublicUserProfileImpl instance) =>
     <String, dynamic>{
-      'userID': instance.userId,
+      'userId': instance.userId,
       'name': instance.name,
       'bio': instance.bio,
       'photoUrl': instance.photoUrl,

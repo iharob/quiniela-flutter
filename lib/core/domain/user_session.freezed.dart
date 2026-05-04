@@ -577,7 +577,6 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserProfile {
-  @JsonKey(name: 'userID')
   int get userId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
@@ -601,11 +600,7 @@ abstract class $UserProfileCopyWith<$Res> {
       _$UserProfileCopyWithImpl<$Res, UserProfile>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'userID') int userId,
-      String name,
-      String email,
-      String? bio,
-      String? photoUrl});
+      {int userId, String name, String email, String? bio, String? photoUrl});
 }
 
 /// @nodoc
@@ -663,11 +658,7 @@ abstract class _$$UserProfileImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'userID') int userId,
-      String name,
-      String email,
-      String? bio,
-      String? photoUrl});
+      {int userId, String name, String email, String? bio, String? photoUrl});
 }
 
 /// @nodoc
@@ -718,7 +709,7 @@ class __$$UserProfileImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserProfileImpl implements _UserProfile {
   const _$UserProfileImpl(
-      {@JsonKey(name: 'userID') required this.userId,
+      {required this.userId,
       required this.name,
       required this.email,
       this.bio,
@@ -728,7 +719,6 @@ class _$UserProfileImpl implements _UserProfile {
       _$$UserProfileImplFromJson(json);
 
   @override
-  @JsonKey(name: 'userID')
   final int userId;
   @override
   final String name;
@@ -780,7 +770,7 @@ class _$UserProfileImpl implements _UserProfile {
 
 abstract class _UserProfile implements UserProfile {
   const factory _UserProfile(
-      {@JsonKey(name: 'userID') required final int userId,
+      {required final int userId,
       required final String name,
       required final String email,
       final String? bio,
@@ -790,7 +780,6 @@ abstract class _UserProfile implements UserProfile {
       _$UserProfileImpl.fromJson;
 
   @override
-  @JsonKey(name: 'userID')
   int get userId;
   @override
   String get name;
@@ -815,7 +804,6 @@ PublicUserProfile _$PublicUserProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PublicUserProfile {
-  @JsonKey(name: 'userID')
   int get userId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get bio => throw _privateConstructorUsedError;
@@ -837,11 +825,7 @@ abstract class $PublicUserProfileCopyWith<$Res> {
           PublicUserProfile value, $Res Function(PublicUserProfile) then) =
       _$PublicUserProfileCopyWithImpl<$Res, PublicUserProfile>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'userID') int userId,
-      String name,
-      String? bio,
-      String? photoUrl});
+  $Res call({int userId, String name, String? bio, String? photoUrl});
 }
 
 /// @nodoc
@@ -893,11 +877,7 @@ abstract class _$$PublicUserProfileImplCopyWith<$Res>
       __$$PublicUserProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'userID') int userId,
-      String name,
-      String? bio,
-      String? photoUrl});
+  $Res call({int userId, String name, String? bio, String? photoUrl});
 }
 
 /// @nodoc
@@ -943,16 +923,12 @@ class __$$PublicUserProfileImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PublicUserProfileImpl implements _PublicUserProfile {
   const _$PublicUserProfileImpl(
-      {@JsonKey(name: 'userID') required this.userId,
-      required this.name,
-      this.bio,
-      this.photoUrl});
+      {required this.userId, required this.name, this.bio, this.photoUrl});
 
   factory _$PublicUserProfileImpl.fromJson(Map<String, dynamic> json) =>
       _$$PublicUserProfileImplFromJson(json);
 
   @override
-  @JsonKey(name: 'userID')
   final int userId;
   @override
   final String name;
@@ -1001,7 +977,7 @@ class _$PublicUserProfileImpl implements _PublicUserProfile {
 
 abstract class _PublicUserProfile implements PublicUserProfile {
   const factory _PublicUserProfile(
-      {@JsonKey(name: 'userID') required final int userId,
+      {required final int userId,
       required final String name,
       final String? bio,
       final String? photoUrl}) = _$PublicUserProfileImpl;
@@ -1010,7 +986,6 @@ abstract class _PublicUserProfile implements PublicUserProfile {
       _$PublicUserProfileImpl.fromJson;
 
   @override
-  @JsonKey(name: 'userID')
   int get userId;
   @override
   String get name;

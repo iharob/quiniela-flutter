@@ -64,7 +64,7 @@ class SessionInfo with _$SessionInfo {
 @freezed
 class UserProfile with _$UserProfile {
   const factory UserProfile({
-    @JsonKey(name: 'userID') required int userId,
+    required int userId,
     required String name,
     required String email,
     String? bio,
@@ -78,7 +78,7 @@ class UserProfile with _$UserProfile {
 @freezed
 class PublicUserProfile with _$PublicUserProfile {
   const factory PublicUserProfile({
-    @JsonKey(name: 'userID') required int userId,
+    required int userId,
     required String name,
     String? bio,
     String? photoUrl,
