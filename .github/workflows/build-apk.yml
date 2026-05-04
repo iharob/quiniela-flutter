@@ -76,7 +76,17 @@ jobs:
       - name: Collect APKs
         run: |
           mkdir -p artifacts
-          cp build/app/outputs/flutter-apk/app-*-release.apk artifacts/
+          version=$(sed -n 's/^version: *\([^+]*\).*/\1/p' pubspec.yaml)
+          if [ -z "$version" ]; then
+            echo "Could not parse version from pubspec.yaml" >&2
+            exit 1
+          fi
+          for apk in build/app/outputs/flutter-apk/app-*-release.apk; do
+            filename=$(basename "$apk")
+            abi=${filename#app-}
+            abi=${abi%-release.apk}
+            cp "$apk" "artifacts/quiniela_2026_v${version}_${abi}.apk"
+          done
 
       - name: Upload APKs as workflow artifact
         uses: actions/upload-artifact@v4
