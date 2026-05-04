@@ -1,0 +1,68 @@
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../../../core/data/api_client.dart';
+import '../../../../core/domain/user_results.dart';
+import 'ongoing_state.dart';
+
+@injectable
+class OngoingCubit extends Cubit<OngoingState> {
+  OngoingCubit(this._apiClient) : super(const OngoingState());
+
+  final ApiClient _apiClient;
+  CancelToken? _cancelToken;
+
+  Future<void> refresh() async {
+    _cancelToken?.cancel();
+    final token = CancelToken();
+    _cancelToken = token;
+    emit(state.copyWith(fetching: true, error: null));
+    try {
+      final groups = await _apiClient.fetchOngoing(cancelToken: token);
+      debugPrint('[Ongoing] fetched ${groups.length} groups');
+      emit(state.copyWith(fetching: false, groups: groups));
+    } on DioException catch (e, stack) {
+      if (CancelToken.isCancel(e)) return;
+      final status = e.response?.statusCode;
+      final body = e.response?.data;
+      debugPrint(
+        '[Ongoing] DioException type=${e.type} status=$status '
+        'message=${e.message} body=$body',
+      );
+      debugPrintStack(stackTrace: stack);
+      emit(state.copyWith(
+        fetching: false,
+        error: 'HTTP ${status ?? '-'}: ${e.message ?? e.type.name}',
+      ));
+    } catch (e, stack) {
+      debugPrint('[Ongoing] unexpected: $e');
+      debugPrintStack(stackTrace: stack);
+      emit(state.copyWith(fetching: false, error: e.toString()));
+    }
+  }
+
+  /// Apply a live score update from FCM. Called by [FcmService] without making
+  /// a network request — replaces or appends [LiveScore] for the matching pair.
+  void applyLiveScore({
+    required String team1Country,
+    required String team2Country,
+    required LiveScore liveScore,
+  }) {
+    final updated = state.groups
+        .map(
+          (g) => g.team1.country == team1Country && g.team2.country == team2Country
+              ? g.copyWith(liveScore: liveScore)
+              : g,
+        )
+        .toList();
+    emit(state.copyWith(groups: updated));
+  }
+
+  @override
+  Future<void> close() {
+    _cancelToken?.cancel();
+    return super.close();
+  }
+}
