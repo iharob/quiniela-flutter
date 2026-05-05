@@ -4,7 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/core/observability/error_reporter.dart';
 import 'package:quiniela_flutter/features/rankings/presentation/bloc/rankings_state.dart';
+
+const _errorSentinel = 'error';
 
 @injectable
 class RankingsCubit extends Cubit<RankingsState> {
@@ -24,21 +27,16 @@ class RankingsCubit extends Cubit<RankingsState> {
       emit(state.copyWith(fetching: false, entries: entries));
     } on DioException catch (e, stack) {
       if (CancelToken.isCancel(e)) return;
-      final status = e.response?.statusCode;
-      final body = e.response?.data;
-      debugPrint(
-        '[Rankings] DioException type=${e.type} status=$status '
-        'message=${e.message} body=$body',
+      await ErrorReporter.capture(
+        e,
+        stack,
+        hint: 'rankings_fetch',
+        extras: {'status': e.response?.statusCode, 'type': e.type.name},
       );
-      debugPrintStack(stackTrace: stack);
-      emit(state.copyWith(
-        fetching: false,
-        error: 'HTTP ${status ?? '-'}: ${e.message ?? e.type.name}',
-      ));
+      emit(state.copyWith(fetching: false, error: _errorSentinel));
     } catch (e, stack) {
-      debugPrint('[Rankings] unexpected: $e');
-      debugPrintStack(stackTrace: stack);
-      emit(state.copyWith(fetching: false, error: e.toString()));
+      await ErrorReporter.capture(e, stack, hint: 'rankings_fetch');
+      emit(state.copyWith(fetching: false, error: _errorSentinel));
     }
   }
 

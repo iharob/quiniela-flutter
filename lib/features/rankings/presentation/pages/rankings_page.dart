@@ -45,21 +45,6 @@ class _RankingsPageState extends State<RankingsPage> {
                                     : 'Parece que aún no empezamos.',
                             error: state.error != null,
                           ),
-                          if (state.error != null)
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 24,
-                                vertical: 12,
-                              ),
-                              child: Text(
-                                state.error!,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Color(0xFFCC0000),
-                                ),
-                              ),
-                            ),
                         ],
                       ),
                     ),

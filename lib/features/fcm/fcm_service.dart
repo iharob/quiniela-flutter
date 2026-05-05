@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:quiniela_flutter/core/domain/user_results.dart';
+import 'package:quiniela_flutter/core/observability/error_reporter.dart';
 import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_cubit.dart';
 
 const _scoresTopic = 'scores';
@@ -40,8 +41,8 @@ class FcmService {
       }
       _foregroundSub =
           FirebaseMessaging.onMessage.listen(_handleScoreMessage);
-    } catch (e) {
-      debugPrint('FCM bootstrap failed: $e');
+    } catch (e, stack) {
+      await ErrorReporter.capture(e, stack, hint: 'fcm_bootstrap');
     }
   }
 

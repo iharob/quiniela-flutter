@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 import 'package:quiniela_flutter/app/app.dart';
 import 'package:quiniela_flutter/core/di/injection.dart';
+import 'package:quiniela_flutter/core/observability/error_reporter.dart';
+import 'package:quiniela_flutter/core/observability/sentry_bootstrap.dart';
 import 'package:quiniela_flutter/core/utils/simulate.dart';
 
 bool get _firebaseSupported {
@@ -14,15 +16,17 @@ bool get _firebaseSupported {
 }
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  if (_firebaseSupported) {
-    try {
-      await Firebase.initializeApp();
-    } catch (e) {
-      debugPrint('Firebase init failed: $e');
+  await initSentry(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    if (_firebaseSupported) {
+      try {
+        await Firebase.initializeApp();
+      } catch (e, stack) {
+        await ErrorReporter.capture(e, stack, hint: 'firebase_init');
+      }
     }
-  }
-  await Simulator.load();
-  await configureDependencies();
-  runApp(const QuinielaApp());
+    await Simulator.load();
+    await configureDependencies();
+    runApp(const QuinielaApp());
+  });
 }

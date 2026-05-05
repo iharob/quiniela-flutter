@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/core/observability/error_reporter.dart';
 import 'package:quiniela_flutter/features/session/bloc/session_cubit.dart';
 import 'package:quiniela_flutter/features/auth/presentation/bloc/auth_state.dart';
 
@@ -45,26 +46,24 @@ class AuthCubit extends Cubit<AuthState> {
       await _sessionCubit.setSession(session);
       emit(const AuthState.success());
     } on PlatformException catch (e, stack) {
-      debugPrint('[GoogleSignIn] PlatformException code=${e.code} message=${e.message}');
-      debugPrintStack(stackTrace: stack);
-      emit(AuthState.failure(
-        AuthFailureKind.googleSignInFailed,
-        'GoogleSignIn ${e.code}: ${e.message ?? '<no message>'}',
-      ));
+      await ErrorReporter.capture(
+        e,
+        stack,
+        hint: 'google_sign_in_platform',
+        extras: {'code': e.code},
+      );
+      emit(const AuthState.failure(AuthFailureKind.googleSignInFailed));
     } on DioException catch (e, stack) {
-      debugPrint('[GoogleSignIn] backend ${e.response?.statusCode}: ${e.message}');
-      debugPrintStack(stackTrace: stack);
-      emit(AuthState.failure(
-        AuthFailureKind.googleSignInFailed,
-        'Backend ${e.response?.statusCode}: ${e.message ?? '<no message>'}',
-      ));
+      await ErrorReporter.capture(
+        e,
+        stack,
+        hint: 'google_sign_in_backend',
+        extras: {'status': e.response?.statusCode, 'type': e.type.name},
+      );
+      emit(const AuthState.failure(AuthFailureKind.googleSignInFailed));
     } catch (e, stack) {
-      debugPrint('[GoogleSignIn] unexpected: $e');
-      debugPrintStack(stackTrace: stack);
-      emit(AuthState.failure(
-        AuthFailureKind.googleSignInFailed,
-        e.toString(),
-      ));
+      await ErrorReporter.capture(e, stack, hint: 'google_sign_in_unexpected');
+      emit(const AuthState.failure(AuthFailureKind.googleSignInFailed));
     }
   }
 
@@ -80,7 +79,7 @@ class AuthCubit extends Cubit<AuthState> {
       );
       await _sessionCubit.setSession(session);
       emit(const AuthState.success());
-    } on DioException catch (e) {
+    } on DioException catch (e, stack) {
       final status = e.response?.statusCode;
       if (status == 401) {
         emit(const AuthState.failure(AuthFailureKind.invalidCredentials));
@@ -89,9 +88,16 @@ class AuthCubit extends Cubit<AuthState> {
           const AuthState.failure(AuthFailureKind.googleAccountUsesPassword),
         );
       } else {
+        await ErrorReporter.capture(
+          e,
+          stack,
+          hint: 'email_login',
+          extras: {'status': status, 'type': e.type.name},
+        );
         emit(const AuthState.failure(AuthFailureKind.unknown));
       }
-    } catch (_) {
+    } catch (e, stack) {
+      await ErrorReporter.capture(e, stack, hint: 'email_login');
       emit(const AuthState.failure(AuthFailureKind.unknown));
     }
   }
@@ -110,13 +116,20 @@ class AuthCubit extends Cubit<AuthState> {
       );
       await _sessionCubit.setSession(session);
       emit(const AuthState.success());
-    } on DioException catch (e) {
+    } on DioException catch (e, stack) {
       if (e.response?.statusCode == 409) {
         emit(const AuthState.failure(AuthFailureKind.emailAlreadyUsed));
       } else {
+        await ErrorReporter.capture(
+          e,
+          stack,
+          hint: 'email_register',
+          extras: {'status': e.response?.statusCode, 'type': e.type.name},
+        );
         emit(const AuthState.failure(AuthFailureKind.unknown));
       }
-    } catch (_) {
+    } catch (e, stack) {
+      await ErrorReporter.capture(e, stack, hint: 'email_register');
       emit(const AuthState.failure(AuthFailureKind.unknown));
     }
   }

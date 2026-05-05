@@ -1,11 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'package:quiniela_flutter/core/data/api_client.dart';
 import 'package:quiniela_flutter/core/domain/user_session.dart';
 import 'package:quiniela_flutter/core/utils/auth_token_holder.dart';
 import 'package:quiniela_flutter/features/session/data/session_storage.dart';
 import 'package:quiniela_flutter/features/session/bloc/session_state.dart';
+
+Future<void> _setSentryUser(int? userId) async {
+  if (kDebugMode) return;
+  await Sentry.configureScope((scope) {
+    scope.setUser(userId == null ? null : SentryUser(id: '$userId'));
+  });
+}
 
 @lazySingleton
 class SessionCubit extends Cubit<SessionState> {
@@ -43,6 +52,7 @@ class SessionCubit extends Cubit<SessionState> {
         payed: info.payed,
       );
       await _storage.saveSession(session);
+      await _setSentryUser(session.userId);
       emit(SessionState.authenticated(session));
     } catch (_) {
       emit(const SessionState.unauthenticated());
@@ -52,6 +62,7 @@ class SessionCubit extends Cubit<SessionState> {
   Future<void> setSession(UserSession session) async {
     _tokenHolder.setToken(session.token);
     await _storage.saveSession(session);
+    await _setSentryUser(session.userId);
     emit(SessionState.authenticated(session));
   }
 
@@ -70,6 +81,7 @@ class SessionCubit extends Cubit<SessionState> {
   Future<void> logout() async {
     await _storage.clear();
     _tokenHolder.setToken(null);
+    await _setSentryUser(null);
     emit(const SessionState.unauthenticated());
   }
 }

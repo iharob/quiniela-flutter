@@ -3,7 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/core/observability/error_reporter.dart';
 import 'package:quiniela_flutter/features/score_details/presentation/bloc/score_details_state.dart';
+
+const _errorSentinel = 'error';
 
 class ScoreDetailsCubit extends Cubit<ScoreDetailsState> {
   ScoreDetailsCubit({required ApiClient apiClient, required this.userId})
@@ -31,21 +34,25 @@ class ScoreDetailsCubit extends Cubit<ScoreDetailsState> {
       emit(state.copyWith(fetching: false, data: data));
     } on DioException catch (e, stack) {
       if (CancelToken.isCancel(e)) return;
-      final status = e.response?.statusCode;
-      final body = e.response?.data;
-      debugPrint(
-        '[ScoreDetails] DioException type=${e.type} status=$status '
-        'message=${e.message} body=$body',
+      await ErrorReporter.capture(
+        e,
+        stack,
+        hint: 'score_details_fetch',
+        extras: {
+          'status': e.response?.statusCode,
+          'type': e.type.name,
+          'user_id': userId,
+        },
       );
-      debugPrintStack(stackTrace: stack);
-      emit(state.copyWith(
-        fetching: false,
-        error: 'HTTP ${status ?? '-'}: ${e.message ?? e.type.name}',
-      ));
+      emit(state.copyWith(fetching: false, error: _errorSentinel));
     } catch (e, stack) {
-      debugPrint('[ScoreDetails] unexpected: $e');
-      debugPrintStack(stackTrace: stack);
-      emit(state.copyWith(fetching: false, error: e.toString()));
+      await ErrorReporter.capture(
+        e,
+        stack,
+        hint: 'score_details_fetch',
+        extras: {'user_id': userId},
+      );
+      emit(state.copyWith(fetching: false, error: _errorSentinel));
     }
   }
 

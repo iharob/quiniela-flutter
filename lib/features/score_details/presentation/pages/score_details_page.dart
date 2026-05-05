@@ -251,15 +251,6 @@ class _ScoreDetailsPageState extends State<ScoreDetailsPage> {
                         'No se pudo cargar el detalle.',
                         textAlign: TextAlign.center,
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        state.error!,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: Color(0xFFCC0000),
-                        ),
-                      ),
                       const SizedBox(height: 16),
                       FilledButton.tonal(
                         onPressed: () =>

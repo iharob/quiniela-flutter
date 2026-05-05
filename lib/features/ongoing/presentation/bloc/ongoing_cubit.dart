@@ -5,7 +5,10 @@ import 'package:injectable/injectable.dart';
 
 import 'package:quiniela_flutter/core/data/api_client.dart';
 import 'package:quiniela_flutter/core/domain/user_results.dart';
+import 'package:quiniela_flutter/core/observability/error_reporter.dart';
 import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_state.dart';
+
+const _errorSentinel = 'error';
 
 @injectable
 class OngoingCubit extends Cubit<OngoingState> {
@@ -25,21 +28,16 @@ class OngoingCubit extends Cubit<OngoingState> {
       emit(state.copyWith(fetching: false, groups: groups));
     } on DioException catch (e, stack) {
       if (CancelToken.isCancel(e)) return;
-      final status = e.response?.statusCode;
-      final body = e.response?.data;
-      debugPrint(
-        '[Ongoing] DioException type=${e.type} status=$status '
-        'message=${e.message} body=$body',
+      await ErrorReporter.capture(
+        e,
+        stack,
+        hint: 'ongoing_fetch',
+        extras: {'status': e.response?.statusCode, 'type': e.type.name},
       );
-      debugPrintStack(stackTrace: stack);
-      emit(state.copyWith(
-        fetching: false,
-        error: 'HTTP ${status ?? '-'}: ${e.message ?? e.type.name}',
-      ));
+      emit(state.copyWith(fetching: false, error: _errorSentinel));
     } catch (e, stack) {
-      debugPrint('[Ongoing] unexpected: $e');
-      debugPrintStack(stackTrace: stack);
-      emit(state.copyWith(fetching: false, error: e.toString()));
+      await ErrorReporter.capture(e, stack, hint: 'ongoing_fetch');
+      emit(state.copyWith(fetching: false, error: _errorSentinel));
     }
   }
 
