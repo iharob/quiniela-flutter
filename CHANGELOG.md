@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/iharob/quiniela-flutter/compare/v1.1.3...v1.1.4) (2026-05-05)
+
+
+### Code Refactoring
+
+* enhance layout alignment, spacing, and widget composition ([94dab94](https://github.com/iharob/quiniela-flutter/commit/94dab9412d54223ab7a3772cb9bd976414a4286c))
+
 ## [1.1.3](https://github.com/iharob/quiniela-flutter/compare/v1.1.2...v1.1.3) (2026-05-04)
 
 
