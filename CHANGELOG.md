@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.10](https://github.com/iharob/quiniela-flutter/compare/v1.1.9...v1.1.10) (2026-05-05)
+
+
+### Code Refactoring
+
+* enhance `StyledButton` widget to improve disabled state styling ([6a96d0a](https://github.com/iharob/quiniela-flutter/commit/6a96d0af6a1d7274349befe9d768661c0df04782))
+
 ## [1.1.9](https://github.com/iharob/quiniela-flutter/compare/v1.1.8...v1.1.9) (2026-05-05)
 
 
