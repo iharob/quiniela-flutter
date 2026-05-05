@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/iharob/quiniela-flutter/compare/v1.1.5...v1.1.6) (2026-05-05)
+
+
+### Code Refactoring
+
+* apply `SafeArea` and padding adjustments for improved layout consistency ([72ddbc1](https://github.com/iharob/quiniela-flutter/commit/72ddbc1c632f77df58b0f93abf7b43143ec0edcd))
+
 ## [1.1.5](https://github.com/iharob/quiniela-flutter/compare/v1.1.4...v1.1.5) (2026-05-05)
 
 
