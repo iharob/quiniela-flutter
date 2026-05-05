@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.8](https://github.com/iharob/quiniela-flutter/compare/v1.1.7...v1.1.8) (2026-05-05)
+
+
+### Code Refactoring
+
+* add system navigation bar styling and enhance `ProfileCubit` state management ([2aecb6b](https://github.com/iharob/quiniela-flutter/commit/2aecb6bce7c688248d8298c40e9380523c5e56ca))
+
 ## [1.1.7](https://github.com/iharob/quiniela-flutter/compare/v1.1.6...v1.1.7) (2026-05-05)
 
 
