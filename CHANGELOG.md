@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/iharob/quiniela-flutter/compare/v1.1.6...v1.1.7) (2026-05-05)
+
+
+### Code Refactoring
+
+* refine UI elements for consistency and usability ([a056146](https://github.com/iharob/quiniela-flutter/commit/a0561467eaa2138cdb5bb6f617bf38c0468dc7b1))
+
 ## [1.1.6](https://github.com/iharob/quiniela-flutter/compare/v1.1.5...v1.1.6) (2026-05-05)
 
 
