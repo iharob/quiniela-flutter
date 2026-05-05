@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/widgets/score_difference_badge.dart';
-import '../../../theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/shared/widgets/score_difference_badge.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 class ScoreCell extends StatelessWidget {
   const ScoreCell({super.key, required this.score, required this.difference});

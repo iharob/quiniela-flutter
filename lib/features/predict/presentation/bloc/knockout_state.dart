@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/domain/game.dart';
-import '../../data/knockout_storage.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/features/predict/data/knockout_storage.dart';
 
 part 'knockout_state.freezed.dart';
 

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../../shared/widgets/avatar.dart';
-import '../../../theme/domain/tournament_theme.dart';
-import '../bloc/profile_cubit.dart';
-import '../bloc/profile_state.dart';
+import 'package:quiniela_flutter/shared/widgets/avatar.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/profile/presentation/bloc/profile_cubit.dart';
+import 'package:quiniela_flutter/features/profile/presentation/bloc/profile_state.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

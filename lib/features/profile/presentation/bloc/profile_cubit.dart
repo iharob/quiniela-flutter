@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/data/api_client.dart';
-import 'profile_state.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/features/profile/presentation/bloc/profile_state.dart';
 
 @injectable
 class ProfileCubit extends Cubit<ProfileState> {

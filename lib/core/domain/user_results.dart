@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'team.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
 
 part 'user_results.freezed.dart';
 part 'user_results.g.dart';

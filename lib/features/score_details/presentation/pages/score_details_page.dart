@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_filex/open_filex.dart';
 
-import '../../../../core/data/api_client.dart';
-import '../../../../core/domain/predicted_result.dart';
-import '../../../../shared/widgets/avatar.dart';
-import '../../../theme/domain/tournament_theme.dart';
-import '../bloc/score_details_cubit.dart';
-import '../bloc/score_details_state.dart';
-import '../widgets/result_and_prediction.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/core/domain/predicted_result.dart';
+import 'package:quiniela_flutter/shared/widgets/avatar.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/score_details/presentation/bloc/score_details_cubit.dart';
+import 'package:quiniela_flutter/features/score_details/presentation/bloc/score_details_state.dart';
+import 'package:quiniela_flutter/features/score_details/presentation/widgets/result_and_prediction.dart';
 
 const Map<int, String> _knockoutRoundNames = {
   2: 'Dieciseisavos de final',

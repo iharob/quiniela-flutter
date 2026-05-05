@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/domain/user_session.dart';
+import 'package:quiniela_flutter/core/domain/user_session.dart';
 
 part 'profile_state.freezed.dart';
 

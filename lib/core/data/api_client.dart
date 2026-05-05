@@ -4,16 +4,16 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../config/app_config.dart';
-import '../domain/game.dart';
-import '../domain/group.dart';
-import '../domain/predicted_result.dart';
-import '../domain/rankings.dart';
-import '../domain/user_results.dart';
-import '../domain/user_session.dart';
-import '../error/api_exception.dart';
-import '../utils/jwt.dart';
-import '../utils/simulate.dart';
+import 'package:quiniela_flutter/core/config/app_config.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/core/domain/group.dart';
+import 'package:quiniela_flutter/core/domain/predicted_result.dart';
+import 'package:quiniela_flutter/core/domain/rankings.dart';
+import 'package:quiniela_flutter/core/domain/user_results.dart';
+import 'package:quiniela_flutter/core/domain/user_session.dart';
+import 'package:quiniela_flutter/core/error/api_exception.dart';
+import 'package:quiniela_flutter/core/utils/jwt.dart';
+import 'package:quiniela_flutter/core/utils/simulate.dart';
 
 @lazySingleton
 class ApiClient {

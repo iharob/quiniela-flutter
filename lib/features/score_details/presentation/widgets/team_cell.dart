@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/domain/team.dart';
-import '../../../../shared/widgets/team_item.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
+import 'package:quiniela_flutter/shared/widgets/team_item.dart';
 
 class PredictedTeamCell extends StatelessWidget {
   const PredictedTeamCell({

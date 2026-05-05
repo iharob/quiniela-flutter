@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../core/data/api_client.dart';
-import '../../../core/domain/user_session.dart';
-import '../../../core/utils/auth_token_holder.dart';
-import '../data/session_storage.dart';
-import 'session_state.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/core/domain/user_session.dart';
+import 'package:quiniela_flutter/core/utils/auth_token_holder.dart';
+import 'package:quiniela_flutter/features/session/data/session_storage.dart';
+import 'package:quiniela_flutter/features/session/bloc/session_state.dart';
 
 @lazySingleton
 class SessionCubit extends Cubit<SessionState> {

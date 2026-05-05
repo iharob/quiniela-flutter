@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/config/app_config.dart';
-import '../../../../shared/widgets/google_g_logo.dart';
-import '../../../../shared/widgets/spinner_overlay.dart';
-import '../../../theme/domain/tournament_theme.dart';
-import '../bloc/auth_cubit.dart';
-import '../bloc/auth_state.dart';
+import 'package:quiniela_flutter/core/config/app_config.dart';
+import 'package:quiniela_flutter/shared/widgets/google_g_logo.dart';
+import 'package:quiniela_flutter/shared/widgets/spinner_overlay.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/auth/presentation/bloc/auth_cubit.dart';
+import 'package:quiniela_flutter/features/auth/presentation/bloc/auth_state.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({

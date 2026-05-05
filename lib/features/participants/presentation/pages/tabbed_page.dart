@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/widgets/hamburger_menu.dart';
-import '../../../ongoing/presentation/pages/ongoing_page.dart';
-import '../../../rankings/presentation/pages/rankings_page.dart';
-import '../../../theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/shared/widgets/hamburger_menu.dart';
+import 'package:quiniela_flutter/features/ongoing/presentation/pages/ongoing_page.dart';
+import 'package:quiniela_flutter/features/rankings/presentation/pages/rankings_page.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 class TabbedPage extends StatefulWidget {
   const TabbedPage({super.key});

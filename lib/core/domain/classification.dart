@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'group.dart';
-import 'team.dart';
+import 'package:quiniela_flutter/core/domain/group.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
 
 part 'classification.freezed.dart';
 

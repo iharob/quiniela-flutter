@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/domain/classification.dart';
-import '../../../../shared/widgets/team_item.dart';
-import '../../../theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/core/domain/classification.dart';
+import 'package:quiniela_flutter/shared/widgets/team_item.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 class GroupClassificationTable extends StatelessWidget {
   const GroupClassificationTable({

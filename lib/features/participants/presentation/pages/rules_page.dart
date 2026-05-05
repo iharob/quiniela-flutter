@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/domain/scoring_rule.dart';
-import '../../../theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/core/domain/scoring_rule.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 class RulesPage extends StatelessWidget {
   const RulesPage({super.key});

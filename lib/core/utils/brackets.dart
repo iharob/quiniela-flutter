@@ -1,6 +1,6 @@
-import '../domain/game.dart';
-import '../domain/team.dart';
-import 'winner.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
+import 'package:quiniela_flutter/core/utils/winner.dart';
 
 GameWithResult _bracketMatchToGame(BracketMatch match) => GameWithResult(
       gameId: match.gameId,

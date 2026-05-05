@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/domain/team.dart';
-import '../../../../shared/widgets/score_input.dart';
-import '../../../../shared/widgets/team_item.dart';
-import '../../../theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
+import 'package:quiniela_flutter/shared/widgets/score_input.dart';
+import 'package:quiniela_flutter/shared/widgets/team_item.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 class GameTeamRow extends StatelessWidget {
   const GameTeamRow({
@@ -39,9 +39,8 @@ class GameTeamRow extends StatelessWidget {
             child: Radio<bool>(
               value: true,
               groupValue: checked ? true : null,
+              fillColor: WidgetStateProperty.all(tournament.primaryColorBright),
               onChanged: disabled ? null : (_) => onWinnerSelected(team),
-              fillColor:
-                  WidgetStateProperty.all(tournament.primaryColorBright),
             ),
           ),
           Expanded(child: TeamItem(team: team)),

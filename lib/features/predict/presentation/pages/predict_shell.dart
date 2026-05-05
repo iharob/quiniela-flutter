@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/data/api_client.dart';
-import '../../data/groups_storage.dart';
-import '../../data/knockout_storage.dart';
-import '../bloc/groups_cubit.dart';
-import '../bloc/knockout_cubit.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/features/predict/data/groups_storage.dart';
+import 'package:quiniela_flutter/features/predict/data/knockout_storage.dart';
+import 'package:quiniela_flutter/features/predict/presentation/bloc/groups_cubit.dart';
+import 'package:quiniela_flutter/features/predict/presentation/bloc/knockout_cubit.dart';
 
 /// Wraps the predict flow with the user-scoped [GroupsCubit] and [KnockoutCubit].
 class PredictShell extends StatelessWidget {

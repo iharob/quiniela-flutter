@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 class ListItemSeparator extends StatelessWidget {
   const ListItemSeparator({super.key});

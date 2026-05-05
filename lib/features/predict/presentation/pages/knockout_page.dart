@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/config/app_config.dart';
-import '../../../../core/domain/game.dart';
-import '../../../../core/domain/team.dart';
-import '../../../../core/utils/brackets.dart';
-import '../../../../core/utils/simulate.dart';
-import '../../../../core/utils/winner.dart';
-import '../../../../shared/widgets/hamburger_menu.dart';
-import '../../../../shared/widgets/styled_button.dart';
-import '../bloc/knockout_cubit.dart';
-import '../widgets/game_group.dart';
-import 'knockout_nav_args.dart';
+import 'package:quiniela_flutter/core/config/app_config.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
+import 'package:quiniela_flutter/core/utils/brackets.dart';
+import 'package:quiniela_flutter/core/utils/simulate.dart';
+import 'package:quiniela_flutter/core/utils/winner.dart';
+import 'package:quiniela_flutter/shared/widgets/hamburger_menu.dart';
+import 'package:quiniela_flutter/shared/widgets/styled_button.dart';
+import 'package:quiniela_flutter/features/predict/presentation/bloc/knockout_cubit.dart';
+import 'package:quiniela_flutter/features/predict/presentation/widgets/game_group.dart';
+import 'package:quiniela_flutter/features/predict/presentation/pages/knockout_nav_args.dart';
 
 const Map<int, String> _roundNames = {
   16: 'Dieciseisavos',
@@ -161,8 +161,8 @@ class _KnockoutPageState extends State<KnockoutPage> {
         ),
         itemBuilder: (context, index) => GameGroupView(
           pair: _pairs[index],
-          onChange: _onScoreChange,
           onWinnerSelected: _onWinnerSelected,
+          onChange: _onScoreChange,
         ),
       ),
       bottomNavigationBar: SafeArea(

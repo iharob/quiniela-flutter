@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/data/api_client.dart';
-import 'score_details_state.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/features/score_details/presentation/bloc/score_details_state.dart';
 
 class ScoreDetailsCubit extends Cubit<ScoreDetailsState> {
   ScoreDetailsCubit({required ApiClient apiClient, required this.userId})

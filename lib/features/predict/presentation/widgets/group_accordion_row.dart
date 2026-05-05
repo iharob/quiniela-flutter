@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/domain/classification.dart';
-import '../../../../core/domain/game.dart';
-import '../../../../core/domain/group.dart';
-import '../../../../core/domain/team.dart';
-import '../../../../shared/widgets/score_input.dart';
-import '../../../../shared/widgets/team_item.dart';
-import '../../../theme/domain/tournament_theme.dart';
-import 'group_classification_table.dart';
+import 'package:quiniela_flutter/core/domain/classification.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/core/domain/group.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
+import 'package:quiniela_flutter/shared/widgets/score_input.dart';
+import 'package:quiniela_flutter/shared/widgets/team_item.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/predict/presentation/widgets/group_classification_table.dart';
 
 const double _gameRowHeight = 50;
 

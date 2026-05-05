@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'full_screen_logo.dart';
+import 'package:quiniela_flutter/shared/widgets/full_screen_logo.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

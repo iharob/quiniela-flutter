@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../config/app_config.dart';
-import '../utils/auth_token_holder.dart';
+import 'package:quiniela_flutter/core/config/app_config.dart';
+import 'package:quiniela_flutter/core/utils/auth_token_holder.dart';
 
 @module
 abstract class DioModule {

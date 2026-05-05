@@ -5,8 +5,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../core/domain/user_results.dart';
-import '../ongoing/presentation/bloc/ongoing_cubit.dart';
+import 'package:quiniela_flutter/core/domain/user_results.dart';
+import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_cubit.dart';
 
 const _scoresTopic = 'scores';
 

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../shared/widgets/list_item_separator.dart';
-import '../bloc/rankings_cubit.dart';
-import '../bloc/rankings_state.dart';
-import '../widgets/list_header.dart';
-import '../widgets/ranking_list_item.dart';
+import 'package:quiniela_flutter/shared/widgets/list_item_separator.dart';
+import 'package:quiniela_flutter/features/rankings/presentation/bloc/rankings_cubit.dart';
+import 'package:quiniela_flutter/features/rankings/presentation/bloc/rankings_state.dart';
+import 'package:quiniela_flutter/features/rankings/presentation/widgets/list_header.dart';
+import 'package:quiniela_flutter/features/rankings/presentation/widgets/ranking_list_item.dart';
 
 class RankingsPage extends StatefulWidget {
   const RankingsPage({super.key});

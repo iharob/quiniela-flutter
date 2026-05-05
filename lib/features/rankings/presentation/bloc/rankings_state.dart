@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/domain/rankings.dart';
+import 'package:quiniela_flutter/core/domain/rankings.dart';
 
 part 'rankings_state.freezed.dart';
 

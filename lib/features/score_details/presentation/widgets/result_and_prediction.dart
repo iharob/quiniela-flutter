@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/domain/predicted_result.dart';
-import '../../../../shared/widgets/team_item.dart';
-import 'list_item_base.dart';
-import 'team_cell.dart';
+import 'package:quiniela_flutter/core/domain/predicted_result.dart';
+import 'package:quiniela_flutter/shared/widgets/team_item.dart';
+import 'package:quiniela_flutter/features/score_details/presentation/widgets/list_item_base.dart';
+import 'package:quiniela_flutter/features/score_details/presentation/widgets/team_cell.dart';
 
 const double _teamRowHeight = 24;
 

@@ -3,9 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/data/api_client.dart';
-import '../../../../core/domain/user_results.dart';
-import 'ongoing_state.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/core/domain/user_results.dart';
+import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_state.dart';
 
 @injectable
 class OngoingCubit extends Cubit<OngoingState> {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 class RankingsListHeader extends StatelessWidget {
   const RankingsListHeader({super.key});

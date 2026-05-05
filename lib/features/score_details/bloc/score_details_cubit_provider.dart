@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/data/api_client.dart';
-import '../presentation/bloc/score_details_cubit.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/features/score_details/presentation/bloc/score_details_cubit.dart';
 
 class ScoreDetailsCubitProvider extends StatelessWidget {
   const ScoreDetailsCubitProvider({

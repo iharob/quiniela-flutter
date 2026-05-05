@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/services.dart';
 
-import '../domain/team.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
 
 class _FifaRankingEntry {
   const _FifaRankingEntry({required this.iso2, required this.points});

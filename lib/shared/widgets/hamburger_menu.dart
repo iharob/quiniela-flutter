@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/session/bloc/session_cubit.dart';
-import '../../features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/session/bloc/session_cubit.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 enum _MenuAction { settings, rules, logout }
 

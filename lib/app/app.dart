@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../core/data/api_client.dart';
-import '../features/auth/presentation/bloc/auth_cubit.dart';
-import '../features/fcm/fcm_service.dart';
-import '../features/ongoing/presentation/bloc/ongoing_cubit.dart';
-import '../features/predict/data/groups_storage.dart';
-import '../features/predict/data/knockout_storage.dart';
-import '../features/profile/presentation/bloc/profile_cubit.dart';
-import '../features/rankings/presentation/bloc/rankings_cubit.dart';
-import '../features/session/bloc/session_cubit.dart';
-import '../features/theme/bloc/theme_cubit.dart';
-import '../features/theme/domain/app_theme.dart';
-import '../features/theme/domain/tournament_theme.dart';
-import 'router.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/features/auth/presentation/bloc/auth_cubit.dart';
+import 'package:quiniela_flutter/features/fcm/fcm_service.dart';
+import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_cubit.dart';
+import 'package:quiniela_flutter/features/predict/data/groups_storage.dart';
+import 'package:quiniela_flutter/features/predict/data/knockout_storage.dart';
+import 'package:quiniela_flutter/features/profile/presentation/bloc/profile_cubit.dart';
+import 'package:quiniela_flutter/features/rankings/presentation/bloc/rankings_cubit.dart';
+import 'package:quiniela_flutter/features/session/bloc/session_cubit.dart';
+import 'package:quiniela_flutter/features/theme/bloc/theme_cubit.dart';
+import 'package:quiniela_flutter/features/theme/domain/app_theme.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/app/router.dart';
 
 class QuinielaApp extends StatefulWidget {
   const QuinielaApp({super.key});

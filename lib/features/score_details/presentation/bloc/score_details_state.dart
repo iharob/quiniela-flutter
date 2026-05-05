@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/domain/predicted_result.dart';
+import 'package:quiniela_flutter/core/domain/predicted_result.dart';
 
 part 'score_details_state.freezed.dart';
 

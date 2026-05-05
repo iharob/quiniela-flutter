@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'email_login_page.dart';
-import 'email_register_page.dart';
-import 'welcome_page.dart';
+import 'package:quiniela_flutter/features/auth/presentation/pages/email_login_page.dart';
+import 'package:quiniela_flutter/features/auth/presentation/pages/email_register_page.dart';
+import 'package:quiniela_flutter/features/auth/presentation/pages/welcome_page.dart';
 
 enum _AuthView { welcome, login, register }
 

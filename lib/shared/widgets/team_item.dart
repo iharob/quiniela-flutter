@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../core/domain/team.dart';
-import '../../features/theme/domain/tournament_theme.dart';
-import 'team_flag.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/shared/widgets/team_flag.dart';
 
 enum TeamItemOrientation { horizontal, vertical }
 

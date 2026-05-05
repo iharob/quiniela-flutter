@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/data/api_client.dart';
-import '../../../../core/domain/classification.dart';
-import '../../../../core/domain/game.dart';
-import '../../../../core/domain/group.dart';
-import '../../../../core/domain/team.dart';
-import '../../data/groups_storage.dart';
-import 'groups_state.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/core/domain/classification.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/core/domain/group.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
+import 'package:quiniela_flutter/features/predict/data/groups_storage.dart';
+import 'package:quiniela_flutter/features/predict/presentation/bloc/groups_state.dart';
 
 class GroupsCubit extends Cubit<GroupsState> {
   GroupsCubit({

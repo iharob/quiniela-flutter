@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/domain/rankings.dart';
-import '../../../../shared/widgets/avatar.dart';
-import '../../../theme/domain/tournament_theme.dart';
-import 'score_cell.dart';
+import 'package:quiniela_flutter/core/domain/rankings.dart';
+import 'package:quiniela_flutter/shared/widgets/avatar.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/rankings/presentation/widgets/score_cell.dart';
 
 class RankingListItem extends StatelessWidget {
   const RankingListItem({super.key, required this.entry, this.onTap});

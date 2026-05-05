@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/config/app_config.dart';
+import 'package:quiniela_flutter/core/config/app_config.dart';
 
 class FullScreenLogo extends StatelessWidget {
   const FullScreenLogo({super.key});

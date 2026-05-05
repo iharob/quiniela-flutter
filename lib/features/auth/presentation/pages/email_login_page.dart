@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../shared/widgets/spinner_overlay.dart';
-import '../../../theme/domain/tournament_theme.dart';
-import '../bloc/auth_cubit.dart';
-import '../bloc/auth_state.dart';
+import 'package:quiniela_flutter/shared/widgets/spinner_overlay.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/auth/presentation/bloc/auth_cubit.dart';
+import 'package:quiniela_flutter/features/auth/presentation/bloc/auth_state.dart';
 
 class EmailLoginPage extends StatefulWidget {
   const EmailLoginPage({super.key, required this.onBack});

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/domain/user_results.dart';
-import '../../../../shared/widgets/avatar.dart';
-import '../../../../shared/widgets/list_item_separator.dart';
-import '../../../../shared/widgets/team_item.dart';
-import '../../../session/bloc/session_cubit.dart';
-import '../../../theme/domain/tournament_theme.dart';
-import '../bloc/ongoing_cubit.dart';
-import '../bloc/ongoing_state.dart';
+import 'package:quiniela_flutter/core/domain/user_results.dart';
+import 'package:quiniela_flutter/shared/widgets/avatar.dart';
+import 'package:quiniela_flutter/shared/widgets/list_item_separator.dart';
+import 'package:quiniela_flutter/shared/widgets/team_item.dart';
+import 'package:quiniela_flutter/features/session/bloc/session_cubit.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_cubit.dart';
+import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_state.dart';
 
 class OngoingPage extends StatefulWidget {
   const OngoingPage({super.key});

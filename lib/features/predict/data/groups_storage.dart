@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../core/domain/group.dart';
+import 'package:quiniela_flutter/core/domain/group.dart';
 
 @lazySingleton
 class GroupsStorage {

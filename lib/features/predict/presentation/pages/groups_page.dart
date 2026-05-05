@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/data/api_client.dart';
-import '../../../../core/domain/classification.dart';
-import '../../../../core/utils/brackets.dart';
-import '../../../../shared/widgets/hamburger_menu.dart';
-import '../../../../shared/widgets/spinner_overlay.dart';
-import '../../../../shared/widgets/styled_button.dart';
-import '../bloc/groups_cubit.dart';
-import '../bloc/groups_state.dart';
-import '../bloc/knockout_cubit.dart';
-import '../widgets/group_accordion_row.dart';
-import 'knockout_nav_args.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/core/domain/classification.dart';
+import 'package:quiniela_flutter/core/utils/brackets.dart';
+import 'package:quiniela_flutter/shared/widgets/hamburger_menu.dart';
+import 'package:quiniela_flutter/shared/widgets/spinner_overlay.dart';
+import 'package:quiniela_flutter/shared/widgets/styled_button.dart';
+import 'package:quiniela_flutter/features/predict/presentation/bloc/groups_cubit.dart';
+import 'package:quiniela_flutter/features/predict/presentation/bloc/groups_state.dart';
+import 'package:quiniela_flutter/features/predict/presentation/bloc/knockout_cubit.dart';
+import 'package:quiniela_flutter/features/predict/presentation/widgets/group_accordion_row.dart';
+import 'package:quiniela_flutter/features/predict/presentation/pages/knockout_nav_args.dart';
 
 class GroupsPage extends StatefulWidget {
   const GroupsPage({super.key});

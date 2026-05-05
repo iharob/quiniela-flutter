@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'tournament_theme.dart';
+import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
 ThemeData buildAppTheme(TournamentTheme tournament) {
   final colorScheme = ColorScheme.light(

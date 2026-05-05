@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/domain/game.dart';
-import '../../../../core/domain/team.dart';
-import 'game_team.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
+import 'package:quiniela_flutter/features/predict/presentation/widgets/game_team.dart';
 
 class GameCard extends StatelessWidget {
   const GameCard({
@@ -11,18 +11,20 @@ class GameCard extends StatelessWidget {
     required this.winner,
     required this.onChange,
     required this.onWinnerSelected,
+    this.padding = const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
   });
 
   final GameWithResult game;
   final Team? winner;
   final void Function(int gameId, Team team, int? value) onChange;
   final ValueChanged<Team> onWinnerSelected;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     final tied = game.team1Score != null && game.team1Score == game.team2Score;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+      padding: padding,
       child: Column(
         children: [
           GameTeamRow(

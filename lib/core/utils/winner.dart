@@ -1,5 +1,5 @@
-import '../domain/game.dart';
-import '../domain/team.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/core/domain/team.dart';
 
 Team getWinner(GameWithResult game) {
   final s1 = game.team1Score;

@@ -80,7 +80,7 @@ const TournamentTheme defaultTournamentTheme = TournamentTheme(
   dimmedCardColor: Color(0xFFFFFFFF),
   primaryColor: Color(0xFF121212),
   primaryColorBright: Color(0xFF222222),
-  borderColor: Color(0x1A000000),
+  borderColor: Color(0x80000000),
 );
 
 extension TournamentThemeContext on BuildContext {

@@ -3,21 +3,21 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../core/domain/game.dart';
-import '../features/auth/presentation/pages/auth_page.dart';
-import '../features/participants/presentation/pages/rules_page.dart';
-import '../features/participants/presentation/pages/tabbed_page.dart';
-import '../features/predict/presentation/pages/final_page.dart';
-import '../features/predict/presentation/pages/groups_page.dart';
-import '../features/predict/presentation/pages/knockout_nav_args.dart';
-import '../features/predict/presentation/pages/knockout_page.dart';
-import '../features/predict/presentation/pages/predict_shell.dart';
-import '../features/profile/presentation/pages/profile_page.dart';
-import '../features/rankings/presentation/pages/rankings_page.dart';
-import '../features/score_details/bloc/score_details_cubit_provider.dart';
-import '../features/score_details/presentation/pages/score_details_page.dart';
-import '../features/session/bloc/session_cubit.dart';
-import '../shared/widgets/splash_screen.dart';
+import 'package:quiniela_flutter/core/domain/game.dart';
+import 'package:quiniela_flutter/features/auth/presentation/pages/auth_page.dart';
+import 'package:quiniela_flutter/features/participants/presentation/pages/rules_page.dart';
+import 'package:quiniela_flutter/features/participants/presentation/pages/tabbed_page.dart';
+import 'package:quiniela_flutter/features/predict/presentation/pages/final_page.dart';
+import 'package:quiniela_flutter/features/predict/presentation/pages/groups_page.dart';
+import 'package:quiniela_flutter/features/predict/presentation/pages/knockout_nav_args.dart';
+import 'package:quiniela_flutter/features/predict/presentation/pages/knockout_page.dart';
+import 'package:quiniela_flutter/features/predict/presentation/pages/predict_shell.dart';
+import 'package:quiniela_flutter/features/profile/presentation/pages/profile_page.dart';
+import 'package:quiniela_flutter/features/rankings/presentation/pages/rankings_page.dart';
+import 'package:quiniela_flutter/features/score_details/bloc/score_details_cubit_provider.dart';
+import 'package:quiniela_flutter/features/score_details/presentation/pages/score_details_page.dart';
+import 'package:quiniela_flutter/features/session/bloc/session_cubit.dart';
+import 'package:quiniela_flutter/shared/widgets/splash_screen.dart';
 
 GoRouter buildRouter(SessionCubit sessionCubit) {
   return GoRouter(

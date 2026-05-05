@@ -6,8 +6,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../config/app_config.dart';
-import 'injection.config.dart';
+import 'package:quiniela_flutter/core/config/app_config.dart';
+import 'package:quiniela_flutter/core/di/injection.config.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -18,7 +18,7 @@ bool get _googleSignInSupported {
 
 @InjectableInit(
   initializerName: 'init',
-  preferRelativeImports: true,
+  preferRelativeImports: false,
   asExtension: true,
 )
 Future<void> configureDependencies() async {

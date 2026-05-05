@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/domain/user_results.dart';
+import 'package:quiniela_flutter/core/domain/user_results.dart';
 
 part 'ongoing_state.freezed.dart';
 

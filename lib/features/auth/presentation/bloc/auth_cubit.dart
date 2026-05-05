@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/data/api_client.dart';
-import '../../../session/bloc/session_cubit.dart';
-import 'auth_state.dart';
+import 'package:quiniela_flutter/core/data/api_client.dart';
+import 'package:quiniela_flutter/features/session/bloc/session_cubit.dart';
+import 'package:quiniela_flutter/features/auth/presentation/bloc/auth_state.dart';
 
 @injectable
 class AuthCubit extends Cubit<AuthState> {
