@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/iharob/quiniela-flutter/compare/v1.1.4...v1.1.5) (2026-05-05)
+
+
+### Code Refactoring
+
+* enforce absolute imports and update analysis options ([2cd68f9](https://github.com/iharob/quiniela-flutter/commit/2cd68f9185c6d690d9b85824577d74f4603572d2))
+
 ## [1.1.4](https://github.com/iharob/quiniela-flutter/compare/v1.1.3...v1.1.4) (2026-05-05)
 
 
