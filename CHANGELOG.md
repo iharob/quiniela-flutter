@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/iharob/quiniela-flutter/compare/v1.1.10...v1.2.0) (2026-05-05)
+
+
+### Features
+
+* route errors to Sentry and hide raw exceptions from users ([c8c1fd4](https://github.com/iharob/quiniela-flutter/commit/c8c1fd439303064e7ebea1e2cd0ca119d1297404))
+
 ## [1.1.10](https://github.com/iharob/quiniela-flutter/compare/v1.1.9...v1.1.10) (2026-05-05)
 
 
