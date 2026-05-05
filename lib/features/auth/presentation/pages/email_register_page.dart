@@ -93,21 +93,27 @@ class _EmailRegisterPageState extends State<EmailRegisterPage> {
           children: [
             SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(30, 50, 30, 30),
+                padding: const EdgeInsets.fromLTRB(30, 12, 30, 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextButton(
-                      onPressed: widget.onBack,
-                      style: TextButton.styleFrom(
-                        alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.zero,
-                      ),
-                      child: Text(
-                        '← Volver',
-                        style: TextStyle(
-                          color: tournament.primaryColor,
-                          fontWeight: FontWeight.w500,
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton.icon(
+                        onPressed: widget.onBack,
+                        style: TextButton.styleFrom(
+                          foregroundColor: tournament.primaryColor,
+                          padding: const EdgeInsets.only(
+                            left: 8,
+                            right: 16,
+                            top: 8,
+                            bottom: 8,
+                          ),
+                        ),
+                        icon: const Icon(Icons.arrow_back, size: 24),
+                        label: const Text(
+                          'Volver',
+                          style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ),
                     ),

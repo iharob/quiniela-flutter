@@ -77,7 +77,7 @@ class RulesPage extends StatelessWidget {
                             ),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              color: tournament.borderColor,
+                              color: tournament.borderColor.withValues(alpha: 0.20),
                               borderRadius: BorderRadius.circular(999),
                             ),
                             child: Text(

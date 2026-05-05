@@ -171,10 +171,7 @@ class _MenuOverlay extends StatelessWidget {
             opacity: fade,
             child: SlideTransition(
               position: slide,
-              child: _MenuCard(
-                tournament: tournament,
-                onSelect: onSelect,
-              ),
+              child: _MenuCard(onSelect: onSelect),
             ),
           ),
         ),
@@ -184,31 +181,29 @@ class _MenuOverlay extends StatelessWidget {
 }
 
 class _MenuCard extends StatelessWidget {
-  const _MenuCard({required this.tournament, required this.onSelect});
+  const _MenuCard({required this.onSelect});
 
-  final TournamentTheme tournament;
   final ValueChanged<_MenuAction> onSelect;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: Container(
-        width: _menuWidth,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: tournament.borderColor),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.12),
-              blurRadius: 18,
-              offset: const Offset(0, 6),
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(12),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.12),
+            blurRadius: 18,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        clipBehavior: Clip.antiAlias,
+        child: SizedBox(
+          width: _menuWidth,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -222,11 +217,7 @@ class _MenuCard extends StatelessWidget {
                 label: 'Reglas',
                 onTap: () => onSelect(_MenuAction.rules),
               ),
-              Divider(
-                height: 1,
-                thickness: 1,
-                color: tournament.borderColor,
-              ),
+              const Divider(height: 1, thickness: 1, color: Colors.black12),
               _MenuRow(
                 icon: Icons.logout,
                 label: 'Cerrar sesión',

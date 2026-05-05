@@ -68,7 +68,7 @@ class WelcomePage extends StatelessWidget {
                     onPressed: () =>
                         context.read<AuthCubit>().signInWithGoogle(),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 16.0),
                   Row(
                     children: [
                       Expanded(child: _DividerLine(color: tournament.borderColor)),
@@ -85,8 +85,15 @@ class WelcomePage extends StatelessWidget {
                       Expanded(child: _DividerLine(color: tournament.borderColor)),
                     ],
                   ),
+                  const SizedBox(height: 4.0),
                   TextButton(
                     onPressed: onNavigateToRegister,
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 28,
+                        vertical: 12,
+                      ),
+                    ),
                     child: Text(
                       'Registrarse con email',
                       style: TextStyle(
@@ -97,6 +104,12 @@ class WelcomePage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: onNavigateToLogin,
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 28,
+                        vertical: 12,
+                      ),
+                    ),
                     child: Text(
                       'Ya tengo cuenta',
                       style: TextStyle(
