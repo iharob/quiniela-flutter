@@ -11,7 +11,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   final ApiClient _apiClient;
 
   Future<void> load() async {
-    emit(state.copyWith(loading: true, error: null));
+    emit(state.copyWith(loading: true, error: null, saved: false));
     try {
       final profile = await _apiClient.fetchProfile();
       emit(state.copyWith(loading: false, profile: profile));
