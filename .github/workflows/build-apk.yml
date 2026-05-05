@@ -89,12 +89,14 @@ jobs:
             --dart-define=SENTRY_ENVIRONMENT=production
 
       - name: Upload debug symbols to Sentry
-        if: env.SENTRY_AUTH_TOKEN != ''
+        if: env.SENTRY_AUTH_TOKEN != '' && env.SENTRY_ORG != '' && env.SENTRY_PROJECT != ''
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-        run: dart run sentry_dart_plugin
+        run: |
+          dart pub global activate sentry_dart_plugin
+          dart pub global run sentry_dart_plugin:sentry_dart_plugin
 
       - name: Collect APKs
         run: |
