@@ -119,11 +119,14 @@ class _HamburgerMenuState extends State<HamburgerMenu>
   @override
   Widget build(BuildContext context) {
     final tournament = context.tournamentTheme;
-    return IconButton(
-      key: _buttonKey,
-      tooltip: 'Menú',
-      icon: Icon(Icons.menu, color: tournament.contrastTextColor),
-      onPressed: _open,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: IconButton(
+        key: _buttonKey,
+        tooltip: 'Menú',
+        icon: Icon(Icons.menu, color: tournament.contrastTextColor),
+        onPressed: _open,
+      ),
     );
   }
 }

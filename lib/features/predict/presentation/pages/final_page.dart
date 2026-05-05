@@ -90,55 +90,59 @@ class _FinalPageState extends State<FinalPage> {
         title: const Text('Final'),
         actions: const [HamburgerMenu()],
       ),
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              GameCard(
-                game: _game,
-                winner: winner,
-                onChange: _onChange,
-                onWinnerSelected: _onWinnerSelected,
-              ),
-              Expanded(
-                child: Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (winner.country != 'NA')
-                        TeamFlag(
-                          country: winner.country,
-                          width: (4 * 70) / 3,
-                          height: 70,
+      body: SafeArea(
+        top: false,
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                GameCard(
+                  game: _game,
+                  winner: winner,
+                  onChange: _onChange,
+                  onWinnerSelected: _onWinnerSelected,
+                  padding: const EdgeInsets.fromLTRB(10, 7, 20, 7),
+                ),
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (winner.country != 'NA')
+                          TeamFlag(
+                            country: winner.country,
+                            width: (4 * 70) / 3,
+                            height: 70,
+                          ),
+                        const SizedBox(height: 16),
+                        Text(
+                          winner.name,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: tournament.textColor,
+                          ),
                         ),
-                      const SizedBox(height: 16),
-                      Text(
-                        winner.name,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: tournament.textColor,
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: StyledButton(
-                    label: 'Aceptar y Enviar',
-                    onPressed: _processing ? null : _submit,
-                    disabled: _processing,
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: StyledButton(
+                      label: 'Aceptar y Enviar',
+                      onPressed: _processing ? null : _submit,
+                      disabled: _processing,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          SpinnerOverlay(visible: _processing),
-        ],
+              ],
+            ),
+            SpinnerOverlay(visible: _processing),
+          ],
+        ),
       ),
     );
   }
