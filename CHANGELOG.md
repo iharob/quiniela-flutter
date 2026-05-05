@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.9](https://github.com/iharob/quiniela-flutter/compare/v1.1.8...v1.1.9) (2026-05-05)
+
+
+### Code Refactoring
+
+* add `LogoutBackGuard` widget and streamline logout confirmation logic ([c40024c](https://github.com/iharob/quiniela-flutter/commit/c40024c1d0d695b26081b04186b13adaff442721))
+
 ## [1.1.8](https://github.com/iharob/quiniela-flutter/compare/v1.1.7...v1.1.8) (2026-05-05)
 
 
