@@ -57,3 +57,6 @@ keystore.env
 # Override the global ~/.gitignore rule that excludes any `theme/` directory.
 !lib/features/theme/
 !lib/features/theme/**
+
+.claude/
+

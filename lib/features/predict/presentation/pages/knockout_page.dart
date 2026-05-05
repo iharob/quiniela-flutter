@@ -165,12 +165,16 @@ class _KnockoutPageState extends State<KnockoutPage> {
           onWinnerSelected: _onWinnerSelected,
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-        child: Center(
-          child: NextButton(
-            disabled: _total != _completed,
-            onNext: _total == _completed ? _handleNext : null,
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+          child: Align(
+            alignment: Alignment.center,
+            heightFactor: 1,
+            child: NextButton(
+              disabled: _total != _completed,
+              onNext: _total == _completed ? _handleNext : null,
+            ),
           ),
         ),
       ),

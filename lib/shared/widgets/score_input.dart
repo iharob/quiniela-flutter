@@ -24,20 +24,18 @@ class ScoreInput extends StatefulWidget {
 
 class _ScoreInputState extends State<ScoreInput> {
   late final TextEditingController _controller;
-  final FocusNode _focusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
     _controller = TextEditingController(text: widget.value?.toString() ?? '');
-    _focusNode.addListener(() => setState(() {}));
   }
 
   @override
   void didUpdateWidget(covariant ScoreInput oldWidget) {
     super.didUpdateWidget(oldWidget);
     final next = widget.value?.toString() ?? '';
-    if (_controller.text != next && !_focusNode.hasFocus) {
+    if (_controller.text != next) {
       _controller.text = next;
     }
   }
@@ -45,7 +43,6 @@ class _ScoreInputState extends State<ScoreInput> {
   @override
   void dispose() {
     _controller.dispose();
-    _focusNode.dispose();
     super.dispose();
   }
 
@@ -68,7 +65,6 @@ class _ScoreInputState extends State<ScoreInput> {
       height: 30,
       child: TextField(
         controller: _controller,
-        focusNode: _focusNode,
         keyboardType: TextInputType.number,
         inputFormatters: [
           FilteringTextInputFormatter.digitsOnly,
@@ -77,31 +73,20 @@ class _ScoreInputState extends State<ScoreInput> {
         textAlign: TextAlign.center,
         textAlignVertical: TextAlignVertical.center,
         onChanged: _handleChange,
-        cursorHeight: 16,
         style: TextStyle(
           color: tournament.textColor,
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
+          height: 1,
         ),
-        decoration: InputDecoration(
-          isDense: true,
+        decoration: const InputDecoration(
+          constraints: BoxConstraints(minHeight: 30, minWidth: 30),
+          prefix: SizedBox(width: 2.0),
           contentPadding: EdgeInsets.zero,
           hintText: '0',
-          hintStyle: TextStyle(color: tournament.placeholderTextColor),
-          fillColor: const Color(0x0D000000),
-          filled: true,
+          hintStyle: TextStyle(
+            color: Colors.grey,
+          ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(color: tournament.textColor),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(color: tournament.textColor),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide:
-                BorderSide(color: tournament.primaryColor, width: 2),
+            borderSide: BorderSide(width: 1.0),
           ),
         ),
       ),

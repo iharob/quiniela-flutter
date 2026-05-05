@@ -120,12 +120,16 @@ class _GroupsPageState extends State<GroupsPage> {
               SpinnerOverlay(visible: state.loading || _computingDraw),
             ],
           ),
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-            child: Center(
-              child: NextButton(
-                disabled: cubit.completed < cubit.total,
-                onNext: cubit.completed == cubit.total ? _handleNext : null,
+          bottomNavigationBar: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              child: Align(
+                alignment: Alignment.center,
+                heightFactor: 1,
+                child: NextButton(
+                  disabled: cubit.completed < cubit.total,
+                  onNext: cubit.completed == cubit.total ? _handleNext : null,
+                ),
               ),
             ),
           ),

@@ -262,31 +262,25 @@ class _GameRow extends StatelessWidget {
     return SizedBox(
       height: _gameRowHeight,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
           children: [
             Expanded(child: TeamItem(team: game.team1)),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ScoreInput(
-                    value: game.team1Score,
-                    team: game.team1,
-                    gameId: game.gameId,
-                    onChange: onScoreChange,
-                  ),
-                  const SizedBox(width: 8),
-                  ScoreInput(
-                    value: game.team2Score,
-                    team: game.team2,
-                    gameId: game.gameId,
-                    onChange: onScoreChange,
-                  ),
-                ],
-              ),
+            const SizedBox(width: 12),
+            ScoreInput(
+              value: game.team1Score,
+              team: game.team1,
+              gameId: game.gameId,
+              onChange: onScoreChange,
             ),
+            const SizedBox(width: 10),
+            ScoreInput(
+              value: game.team2Score,
+              team: game.team2,
+              gameId: game.gameId,
+              onChange: onScoreChange,
+            ),
+            const SizedBox(width: 12),
             Expanded(
               child: TeamItem(
                 team: game.team2,

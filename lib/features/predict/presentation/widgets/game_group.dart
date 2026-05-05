@@ -26,55 +26,93 @@ class GameGroupView extends StatelessWidget {
     final winner2 = getWinner(pair[1]);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              children: [
-                GameCard(
-                  game: pair[0],
-                  winner: winner1,
-                  onChange: onChange,
-                  onWinnerSelected: onWinnerSelected,
-                ),
-                GameCard(
-                  game: pair[1],
-                  winner: winner2,
-                  onChange: onChange,
-                  onWinnerSelected: onWinnerSelected,
-                ),
-              ],
+      child: IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  GameCard(
+                    game: pair[0],
+                    winner: winner1,
+                    onChange: onChange,
+                    onWinnerSelected: onWinnerSelected,
+                  ),
+                  GameCard(
+                    game: pair[1],
+                    winner: winner2,
+                    onChange: onChange,
+                    onWinnerSelected: onWinnerSelected,
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _Connector(color: tournament.borderColor),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6),
-                  child: TeamItem(team: winner1),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6),
-                  child: TeamItem(team: winner2),
-                ),
-                _Connector(color: tournament.borderColor),
-              ],
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.28,
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                        child: _BracketCell(
+                          team: winner1,
+                          lineColor: tournament.borderColor,
+                        ),
+                      ),
+                      Expanded(
+                        child: _BracketCell(
+                          team: winner2,
+                          lineColor: tournament.borderColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: FractionallySizedBox(
+                        heightFactor: 0.5,
+                        child: Container(
+                          width: 1,
+                          color: tournament.borderColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
-class _Connector extends StatelessWidget {
-  const _Connector({required this.color});
-  final Color color;
+class _BracketCell extends StatelessWidget {
+  const _BracketCell({required this.team, required this.lineColor});
+
+  final Team team;
+  final Color lineColor;
+
   @override
   Widget build(BuildContext context) {
-    return Container(width: double.infinity, height: 1, color: color);
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Container(height: 1, color: lineColor),
+        ),
+        Expanded(
+          flex: 3,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+            child: TeamItem(team: team),
+          ),
+        ),
+      ],
+    );
   }
 }
