@@ -6,6 +6,7 @@ import 'package:quiniela_flutter/core/data/api_client.dart';
 import 'package:quiniela_flutter/core/domain/classification.dart';
 import 'package:quiniela_flutter/core/utils/brackets.dart';
 import 'package:quiniela_flutter/shared/widgets/hamburger_menu.dart';
+import 'package:quiniela_flutter/shared/widgets/logout_back_guard.dart';
 import 'package:quiniela_flutter/shared/widgets/spinner_overlay.dart';
 import 'package:quiniela_flutter/shared/widgets/styled_button.dart';
 import 'package:quiniela_flutter/features/predict/presentation/bloc/groups_cubit.dart';
@@ -83,52 +84,55 @@ class _GroupsPageState extends State<GroupsPage> {
         final positionsByName = <String, ClassificationGroup>{
           for (final p in state.positions) p.name: p,
         };
-        return Scaffold(
-          appBar: AppBar(
-            title: Text('Completado ${cubit.completed}/${cubit.total}'),
-            actions: const [HamburgerMenu()],
-          ),
-          body: Stack(
-            children: [
-              ListView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: state.groups.length,
-                itemBuilder: (context, index) {
-                  final group = state.groups[index];
-                  final expanded = _expandedGroup == group.name;
-                  final dimmed = _expandedGroup != null && !expanded;
-                  return GroupAccordionRow(
-                    group: group,
-                    classification: positionsByName[group.name],
-                    expanded: expanded,
-                    dimmed: dimmed,
-                    onToggle: (name) {
-                      setState(() {
-                        _expandedGroup = _expandedGroup == name ? null : name;
-                      });
-                    },
-                    onScoreChange: (gameId, team, value) {
-                      cubit.updateGameScore(
-                        gameId: gameId,
-                        team: team,
-                        value: value,
-                      );
-                    },
-                  );
-                },
-              ),
-              SpinnerOverlay(visible: state.loading || _computingDraw),
-            ],
-          ),
-          bottomNavigationBar: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Align(
-                alignment: Alignment.center,
-                heightFactor: 1,
-                child: NextButton(
-                  disabled: cubit.completed < cubit.total,
-                  onNext: cubit.completed == cubit.total ? _handleNext : null,
+        return LogoutBackGuard(
+          child: Scaffold(
+            appBar: AppBar(
+              title: Text('Completado ${cubit.completed}/${cubit.total}'),
+              actions: const [HamburgerMenu()],
+            ),
+            body: Stack(
+              children: [
+                ListView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: state.groups.length,
+                  itemBuilder: (context, index) {
+                    final group = state.groups[index];
+                    final expanded = _expandedGroup == group.name;
+                    final dimmed = _expandedGroup != null && !expanded;
+                    return GroupAccordionRow(
+                      group: group,
+                      classification: positionsByName[group.name],
+                      expanded: expanded,
+                      dimmed: dimmed,
+                      onToggle: (name) {
+                        setState(() {
+                          _expandedGroup = _expandedGroup == name ? null : name;
+                        });
+                      },
+                      onScoreChange: (gameId, team, value) {
+                        cubit.updateGameScore(
+                          gameId: gameId,
+                          team: team,
+                          value: value,
+                        );
+                      },
+                    );
+                  },
+                ),
+                SpinnerOverlay(visible: state.loading || _computingDraw),
+              ],
+            ),
+            bottomNavigationBar: SafeArea(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                child: Align(
+                  alignment: Alignment.center,
+                  heightFactor: 1,
+                  child: NextButton(
+                    disabled: cubit.completed < cubit.total,
+                    onNext: cubit.completed == cubit.total ? _handleNext : null,
+                  ),
                 ),
               ),
             ),
@@ -138,4 +142,3 @@ class _GroupsPageState extends State<GroupsPage> {
     );
   }
 }
-

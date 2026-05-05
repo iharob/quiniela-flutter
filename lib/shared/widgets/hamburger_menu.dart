@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:quiniela_flutter/features/session/bloc/session_cubit.dart';
 import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
+import 'package:quiniela_flutter/shared/widgets/logout_back_guard.dart';
 
 enum _MenuAction { settings, rules, logout }
 
@@ -42,27 +43,6 @@ class _HamburgerMenuState extends State<HamburgerMenu>
     super.dispose();
   }
 
-  Future<bool> _confirmLogout(BuildContext context) async {
-    final result = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Cerrar sesión'),
-        content: const Text('¿Estás seguro que deseas cerrar sesión?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancelar'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Cerrar sesión'),
-          ),
-        ],
-      ),
-    );
-    return result == true;
-  }
-
   Future<void> _handleSelection(_MenuAction action) async {
     await _close();
     if (!mounted) return;
@@ -72,7 +52,7 @@ class _HamburgerMenuState extends State<HamburgerMenu>
       case _MenuAction.rules:
         context.push('/rules');
       case _MenuAction.logout:
-        final confirmed = await _confirmLogout(context);
+        final confirmed = await confirmLogout(context);
         if (confirmed && mounted) {
           await context.read<SessionCubit>().logout();
         }

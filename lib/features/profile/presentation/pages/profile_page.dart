@@ -87,96 +87,97 @@ class _ProfilePageState extends State<ProfilePage> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(title: const Text('Ajustes')),
-          body: state.loading
-              ? const Center(child: CircularProgressIndicator())
-              : SingleChildScrollView(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    children: [
-                      GestureDetector(
-                        onTap: _pickImage,
-                        child: Stack(
-                          children: [
-                            _photoPath != null
-                                ? ClipOval(
-                                    child: Image.file(
-                                      File(_photoPath!),
-                                      width: 96,
-                                      height: 96,
-                                      fit: BoxFit.cover,
+          body: SafeArea(
+            child: state.loading
+                ? const Center(child: CircularProgressIndicator())
+                : SingleChildScrollView(
+                    padding: const EdgeInsets.all(24),
+                    child: Column(
+                      children: [
+                        GestureDetector(
+                          onTap: _pickImage,
+                          child: Stack(
+                            children: [
+                              _photoPath != null
+                                  ? ClipOval(
+                                      child: Image.file(
+                                        File(_photoPath!),
+                                        width: 96,
+                                        height: 96,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    )
+                                  : Avatar(
+                                      name:
+                                          _name.text.isEmpty ? '?' : _name.text,
+                                      size: 96,
+                                      uri: _initialPhotoUrl,
                                     ),
-                                  )
-                                : Avatar(
-                                    name: _name.text.isEmpty
-                                        ? '?'
-                                        : _name.text,
-                                    size: 96,
-                                    uri: _initialPhotoUrl,
+                              Positioned(
+                                right: 0,
+                                bottom: 0,
+                                child: Container(
+                                  width: 32,
+                                  height: 32,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                    border: Border.all(
+                                      color: tournament.borderColor,
+                                    ),
                                   ),
-                            Positioned(
-                              right: 0,
-                              bottom: 0,
-                              child: Container(
-                                width: 32,
-                                height: 32,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white,
-                                  border: Border.all(
-                                    color: tournament.borderColor,
-                                  ),
+                                  child: Icon(Icons.camera_alt,
+                                      size: 16, color: tournament.primaryColor),
                                 ),
-                                child: Icon(Icons.camera_alt,
-                                    size: 16, color: tournament.primaryColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 32),
+                        _LabelField(
+                          label: 'NOMBRE',
+                          controller: _name,
+                          hint: 'Tu nombre',
+                        ),
+                        const SizedBox(height: 20),
+                        _LabelField(
+                          label: 'BIO',
+                          controller: _bio,
+                          hint: 'Algo sobre ti',
+                          maxLength: 140,
+                        ),
+                        const SizedBox(height: 24),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 50,
+                          child: FilledButton(
+                            onPressed: state.saving ? null : _save,
+                            style: FilledButton.styleFrom(
+                              backgroundColor: Colors.black,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 32),
-                      _LabelField(
-                        label: 'NOMBRE',
-                        controller: _name,
-                        hint: 'Tu nombre',
-                      ),
-                      const SizedBox(height: 20),
-                      _LabelField(
-                        label: 'BIO',
-                        controller: _bio,
-                        hint: 'Algo sobre ti',
-                        maxLength: 140,
-                      ),
-                      const SizedBox(height: 24),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: FilledButton(
-                          onPressed: state.saving ? null : _save,
-                          style: FilledButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: state.saving
-                              ? const CircularProgressIndicator(
-                                  color: Colors.white,
-                                  strokeWidth: 2,
-                                )
-                              : const Text(
-                                  'Guardar',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                            child: state.saving
+                                ? const CircularProgressIndicator(
                                     color: Colors.white,
+                                    strokeWidth: 2,
+                                  )
+                                : const Text(
+                                    'Guardar',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+          ),
         );
       },
     );
