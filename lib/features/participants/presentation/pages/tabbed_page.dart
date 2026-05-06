@@ -42,9 +42,25 @@ class _TabbedPageState extends State<TabbedPage> {
             title: const Text('Quiniela Mundial 2026'),
             actions: const [HamburgerMenu()],
           ),
-          body: IndexedStack(
-            index: _index,
-            children: _tabs.map((t) => t.page).toList(),
+          body: Stack(
+            children: [
+              IndexedStack(
+                index: _index,
+                children: _tabs.map((t) => t.page).toList(),
+              ),
+              // Bridges a sub-pixel seam where the Scaffold's light background
+              // can bleed through between the AppBar and the body on devices
+              // with fractional status-bar insets or DPRs.
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 1.0 / MediaQuery.of(context).devicePixelRatio,
+                child: IgnorePointer(
+                  child: ColoredBox(color: tournament.cardColor),
+                ),
+              ),
+            ],
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: _index,
