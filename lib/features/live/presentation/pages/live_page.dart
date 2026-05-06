@@ -7,29 +7,29 @@ import 'package:quiniela_flutter/shared/widgets/list_item_separator.dart';
 import 'package:quiniela_flutter/shared/widgets/team_item.dart';
 import 'package:quiniela_flutter/features/session/bloc/session_cubit.dart';
 import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
-import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_cubit.dart';
-import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_state.dart';
+import 'package:quiniela_flutter/features/live/presentation/bloc/live_cubit.dart';
+import 'package:quiniela_flutter/features/live/presentation/bloc/live_state.dart';
 
-class OngoingPage extends StatefulWidget {
-  const OngoingPage({super.key});
+class LivePage extends StatefulWidget {
+  const LivePage({super.key});
 
   @override
-  State<OngoingPage> createState() => _OngoingPageState();
+  State<LivePage> createState() => _LivePageState();
 }
 
-class _OngoingPageState extends State<OngoingPage>
+class _LivePageState extends State<LivePage>
     with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    context.read<OngoingCubit>().refresh();
+    context.read<LiveCubit>().refresh();
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      context.read<OngoingCubit>().refresh();
+      context.read<LiveCubit>().refresh();
     }
   }
 
@@ -47,13 +47,13 @@ class _OngoingPageState extends State<OngoingPage>
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OngoingCubit, OngoingState>(
+    return BlocBuilder<LiveCubit, LiveState>(
       builder: (context, state) {
         final session = context.read<SessionCubit>().currentSession;
         final currentUserId = session?.userId ?? -1;
         if (state.groups.isEmpty) {
           return RefreshIndicator(
-            onRefresh: () => context.read<OngoingCubit>().refresh(),
+            onRefresh: () => context.read<LiveCubit>().refresh(),
             child: ListView(
               children: [
                 SizedBox(
@@ -67,7 +67,7 @@ class _OngoingPageState extends State<OngoingPage>
           );
         }
         return RefreshIndicator(
-          onRefresh: () => context.read<OngoingCubit>().refresh(),
+          onRefresh: () => context.read<LiveCubit>().refresh(),
           child: ListView.builder(
             itemCount: state.groups.length,
             itemBuilder: (context, index) {
@@ -78,7 +78,7 @@ class _OngoingPageState extends State<OngoingPage>
               final others = group.groupResults
                   .where((r) => r.user.id != currentUserId)
                   .toList();
-              return _OngoingSection(
+              return _LiveSection(
                 group: group,
                 self: self,
                 others: others,
@@ -96,8 +96,8 @@ extension<T> on Iterable<T> {
   T? get firstOrNull => isEmpty ? null : first;
 }
 
-class _OngoingSection extends StatelessWidget {
-  const _OngoingSection({
+class _LiveSection extends StatelessWidget {
+  const _LiveSection({
     required this.group,
     required this.self,
     required this.others,

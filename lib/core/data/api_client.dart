@@ -191,9 +191,9 @@ class ApiClient {
     }
   }
 
-  Future<List<GameResultGroup>> fetchOngoing({CancelToken? cancelToken}) async {
+  Future<List<GameResultGroup>> fetchLive({CancelToken? cancelToken}) async {
     final res = await _dio.get<dynamic>(
-      '/ongoing',
+      '/live',
       cancelToken: cancelToken,
     );
     if (res.statusCode != 200) throw const ApiException('bad response');

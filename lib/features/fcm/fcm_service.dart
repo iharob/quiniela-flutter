@@ -7,15 +7,15 @@ import 'package:injectable/injectable.dart';
 
 import 'package:quiniela_flutter/core/domain/user_results.dart';
 import 'package:quiniela_flutter/core/observability/error_reporter.dart';
-import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_cubit.dart';
+import 'package:quiniela_flutter/features/live/presentation/bloc/live_cubit.dart';
 
 const _scoresTopic = 'scores';
 
 @lazySingleton
 class FcmService {
-  FcmService(this._ongoingCubit);
+  FcmService(this._liveCubit);
 
-  final OngoingCubit _ongoingCubit;
+  final LiveCubit _liveCubit;
   StreamSubscription<RemoteMessage>? _foregroundSub;
   bool _bootstrapped = false;
 
@@ -62,7 +62,7 @@ class FcmService {
     final s2 = int.tryParse(t2Raw);
     if (s1 == null || s2 == null) return;
     final status = data['status'];
-    _ongoingCubit.applyLiveScore(
+    _liveCubit.applyLiveScore(
       team1Country: team1,
       team2Country: team2,
       liveScore: LiveScore(

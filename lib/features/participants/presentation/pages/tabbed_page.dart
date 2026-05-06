@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:quiniela_flutter/shared/widgets/hamburger_menu.dart';
 import 'package:quiniela_flutter/shared/widgets/logout_back_guard.dart';
-import 'package:quiniela_flutter/features/ongoing/presentation/pages/ongoing_page.dart';
+import 'package:quiniela_flutter/features/live/presentation/pages/live_page.dart';
 import 'package:quiniela_flutter/features/rankings/presentation/pages/rankings_page.dart';
 import 'package:quiniela_flutter/features/theme/domain/tournament_theme.dart';
 
@@ -25,7 +25,7 @@ class _TabbedPageState extends State<TabbedPage> {
     _Tab(
         label: 'Jugando',
         icon: Icons.satellite_alt_outlined,
-        page: OngoingPage()),
+        page: LivePage()),
   ];
 
   @override

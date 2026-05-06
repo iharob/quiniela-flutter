@@ -6,13 +6,13 @@ import 'package:injectable/injectable.dart';
 import 'package:quiniela_flutter/core/data/api_client.dart';
 import 'package:quiniela_flutter/core/domain/user_results.dart';
 import 'package:quiniela_flutter/core/observability/error_reporter.dart';
-import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_state.dart';
+import 'package:quiniela_flutter/features/live/presentation/bloc/live_state.dart';
 
 const _errorSentinel = 'error';
 
 @injectable
-class OngoingCubit extends Cubit<OngoingState> {
-  OngoingCubit(this._apiClient) : super(const OngoingState());
+class LiveCubit extends Cubit<LiveState> {
+  LiveCubit(this._apiClient) : super(const LiveState());
 
   final ApiClient _apiClient;
   CancelToken? _cancelToken;
@@ -23,20 +23,20 @@ class OngoingCubit extends Cubit<OngoingState> {
     _cancelToken = token;
     emit(state.copyWith(fetching: true, error: null));
     try {
-      final groups = await _apiClient.fetchOngoing(cancelToken: token);
-      debugPrint('[Ongoing] fetched ${groups.length} groups');
+      final groups = await _apiClient.fetchLive(cancelToken: token);
+      debugPrint('[Live] fetched ${groups.length} groups');
       emit(state.copyWith(fetching: false, groups: groups));
     } on DioException catch (e, stack) {
       if (CancelToken.isCancel(e)) return;
       await ErrorReporter.capture(
         e,
         stack,
-        hint: 'ongoing_fetch',
+        hint: 'live_fetch',
         extras: {'status': e.response?.statusCode, 'type': e.type.name},
       );
       emit(state.copyWith(fetching: false, error: _errorSentinel));
     } catch (e, stack) {
-      await ErrorReporter.capture(e, stack, hint: 'ongoing_fetch');
+      await ErrorReporter.capture(e, stack, hint: 'live_fetch');
       emit(state.copyWith(fetching: false, error: _errorSentinel));
     }
   }

@@ -19,8 +19,8 @@ import 'package:quiniela_flutter/core/utils/auth_token_holder.dart' as _i1006;
 import 'package:quiniela_flutter/features/auth/presentation/bloc/auth_cubit.dart'
     as _i868;
 import 'package:quiniela_flutter/features/fcm/fcm_service.dart' as _i198;
-import 'package:quiniela_flutter/features/ongoing/presentation/bloc/ongoing_cubit.dart'
-    as _i699;
+import 'package:quiniela_flutter/features/live/presentation/bloc/live_cubit.dart'
+    as _i789;
 import 'package:quiniela_flutter/features/predict/data/groups_storage.dart'
     as _i204;
 import 'package:quiniela_flutter/features/predict/data/knockout_storage.dart'
@@ -59,12 +59,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i308.ApiClient>(() => _i308.ApiClient(gh<_i361.Dio>()));
     gh.factory<_i736.RankingsCubit>(
         () => _i736.RankingsCubit(gh<_i308.ApiClient>()));
-    gh.factory<_i699.OngoingCubit>(
-        () => _i699.OngoingCubit(gh<_i308.ApiClient>()));
+    gh.factory<_i789.LiveCubit>(() => _i789.LiveCubit(gh<_i308.ApiClient>()));
     gh.factory<_i131.ProfileCubit>(
         () => _i131.ProfileCubit(gh<_i308.ApiClient>()));
-    gh.lazySingleton<_i198.FcmService>(
-        () => _i198.FcmService(gh<_i699.OngoingCubit>()));
     gh.lazySingleton<_i986.SessionCubit>(() => _i986.SessionCubit(
           gh<_i180.SessionStorage>(),
           gh<_i1006.AuthTokenHolder>(),
@@ -75,6 +72,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i986.SessionCubit>(),
           gh<_i116.GoogleSignIn>(),
         ));
+    gh.lazySingleton<_i198.FcmService>(
+        () => _i198.FcmService(gh<_i789.LiveCubit>()));
     return this;
   }
 }
