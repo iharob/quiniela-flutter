@@ -28,6 +28,9 @@ ThemeData buildAppTheme(TournamentTheme tournament) {
         fontWeight: FontWeight.w600,
       ),
       elevation: 0,
+      scrolledUnderElevation: 0,
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.transparent,
     ),
     textTheme: TextTheme(
       bodyMedium: TextStyle(color: tournament.textColor),
