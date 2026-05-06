@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.3](https://github.com/iharob/quiniela-flutter/compare/v1.2.2...v1.2.3) (2026-05-06)
+
+
+### Bug Fixes
+
+* show loading and connection-error states on Live page ([c10c63e](https://github.com/iharob/quiniela-flutter/commit/c10c63efb1e59fd08adcdc62e2969ac9eb27b146))
+* show loading and connection-error states on Live page ([e57d0ea](https://github.com/iharob/quiniela-flutter/commit/e57d0ea535104ca5b2e0e38f7d7a838896b2a65b))
+
 ## [1.2.2](https://github.com/iharob/quiniela-flutter/compare/v1.2.1...v1.2.2) (2026-05-06)
 
 
