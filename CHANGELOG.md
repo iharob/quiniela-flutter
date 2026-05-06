@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/iharob/quiniela-flutter/compare/v1.2.1...v1.2.2) (2026-05-06)
+
+
+### Code Refactoring
+
+* replace `Ongoing` feature with `Live` feature for state management and UI enhancements ([44e0004](https://github.com/iharob/quiniela-flutter/commit/44e00047286e1d8615c4b5d5a754ac6b06f37e4b))
+
 ## [1.2.1](https://github.com/iharob/quiniela-flutter/compare/v1.2.0...v1.2.1) (2026-05-06)
 
 
