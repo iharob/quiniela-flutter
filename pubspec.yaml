@@ -1,7 +1,7 @@
 name: quiniela_flutter
 description: "Quiniela Mundial 2026 Flutter port."
 publish_to: 'none'
-version: 1.2.2+23
+version: 1.2.3+24
 
 environment:
   sdk: ^3.5.0
