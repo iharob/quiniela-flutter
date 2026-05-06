@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/iharob/quiniela-flutter/compare/v1.2.0...v1.2.1) (2026-05-06)
+
+
+### Bug Fixes
+
+* remove AppBar scroll-under tint that rendered as a divider line ([084bf4f](https://github.com/iharob/quiniela-flutter/commit/084bf4f2838575dc0ca91abcc2d409c2c776fd4a))
+
 ## [1.2.0](https://github.com/iharob/quiniela-flutter/compare/v1.1.10...v1.2.0) (2026-05-05)
 
 
