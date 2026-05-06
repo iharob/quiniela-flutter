@@ -58,8 +58,13 @@ class _LivePageState extends State<LivePage>
               children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.7,
-                  child: const ListEmptyMessage(
-                    message: 'No hay partidos en este momento',
+                  child: ListEmptyMessage(
+                    message: state.fetching
+                        ? 'Cargando...'
+                        : state.error != null
+                            ? 'Probablemente hay un problema de conexión.'
+                            : 'No hay partidos en este momento',
+                    error: state.error != null,
                   ),
                 ),
               ],
