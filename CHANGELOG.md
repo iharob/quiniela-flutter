@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/iharob/quiniela-flutter/compare/v1.2.3...v1.2.4) (2026-05-06)
+
+
+### Bug Fixes
+
+* address sub-pixel seam issue in Scaffold body rendering ([51529ab](https://github.com/iharob/quiniela-flutter/commit/51529abd225068d6765bd795b2ae0853d6b8bd07))
+
 ## [1.2.3](https://github.com/iharob/quiniela-flutter/compare/v1.2.2...v1.2.3) (2026-05-06)
 
 
