@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:quiniela_flutter/core/config/app_config.dart';
 
@@ -8,8 +9,8 @@ class FullScreenLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Image.asset(
-        'assets/images/logo-white.png',
+      child: SvgPicture.asset(
+        'assets/images/logo-white.svg',
         width: AppConfig.logoWidth,
         height: AppConfig.logoHeight,
         fit: BoxFit.contain,

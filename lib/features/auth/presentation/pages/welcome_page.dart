@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:quiniela_flutter/core/config/app_config.dart';
 import 'package:quiniela_flutter/shared/widgets/google_g_logo.dart';
@@ -43,8 +44,8 @@ class WelcomePage extends StatelessWidget {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Image.asset(
-                              'assets/images/logo.png',
+                            SvgPicture.asset(
+                              'assets/images/logo.svg',
                               width: AppConfig.logoWidth,
                               height: AppConfig.logoHeight,
                               fit: BoxFit.contain,

@@ -1,0 +1,25 @@
+<svg width="217" height="217" viewBox="0 0 217 217" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Plinth base -->
+  <rect x="58" y="190" width="101" height="13" rx="3" fill="#FFFFFF"/>
+  <rect x="72" y="178" width="73" height="13" rx="2" fill="#FFFFFF" opacity="0.92"/>
+  <!-- Stem -->
+  <path d="M99 145 L118 145 L122 178 L95 178 Z" fill="#FFFFFF"/>
+  <!-- Bowl -->
+  <path d="M58 82 L159 82 C 154 130 137 145 108.5 145 C 80 145 63 130 58 82 Z" fill="#FFFFFF" opacity="0.95"/>
+  <!-- Bowl rim -->
+  <ellipse cx="108.5" cy="82" rx="51" ry="7" fill="#FFFFFF"/>
+  <!-- Left handle -->
+  <path d="M58 92 C 26 96 22 130 55 138" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Right handle -->
+  <path d="M159 92 C 191 96 195 130 162 138" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Soccer ball -->
+  <circle cx="108.5" cy="48" r="32" fill="#FFFFFF" stroke="#7A000A" stroke-width="3"/>
+  <!-- Center pentagon -->
+  <polygon points="108.5,34 121.8,43.7 116.7,59.3 100.3,59.3 95.2,43.7" fill="#7A000A"/>
+  <!-- Seam lines -->
+  <line x1="108.5" y1="34" x2="108.5" y2="17" stroke="#7A000A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="121.8" y1="43.7" x2="138.6" y2="38.3" stroke="#7A000A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="116.7" y1="59.3" x2="127.0" y2="73.6" stroke="#7A000A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="100.3" y1="59.3" x2="90.0" y2="73.6" stroke="#7A000A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="95.2" y1="43.7" x2="78.4" y2="38.3" stroke="#7A000A" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
