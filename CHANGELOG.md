@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/iharob/quiniela-flutter/compare/v1.2.4...v1.3.0) (2026-05-20)
+
+
+### Features
+
+* replace FIFA-branded logo and launcher icons with original artwork ([d67a73f](https://github.com/iharob/quiniela-flutter/commit/d67a73fcf68ed2e1a2b7b88ddfa181880b556b47))
+
 ## [1.2.4](https://github.com/iharob/quiniela-flutter/compare/v1.2.3...v1.2.4) (2026-05-06)
 
 
